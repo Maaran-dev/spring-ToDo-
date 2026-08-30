@@ -1,9 +1,9 @@
-package dev.learn.first;
+package dev.learn.first.controller;
 
+import dev.learn.first.service.apiService;
 import dev.learn.first.model.toDo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +32,18 @@ public class apiController {
     ResponseEntity<List<toDo>> getalltodos(){
             return new ResponseEntity<List<toDo>>(ApiService.getalltodo(),HttpStatus.OK);
         }
+    @PutMapping
+    ResponseEntity<toDo> UpdateToDo(@RequestBody toDo body){
+        return new ResponseEntity<>(ApiService.UpdateToDo(body),HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{id}")
+    void DeleteToDo(@PathVariable int id){
+        ApiService.DeleteToDo(id);
+    }
+
+
+
     }
 
 
