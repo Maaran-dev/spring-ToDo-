@@ -12,11 +12,11 @@ public class UserService {
     public UserRepository userRepository;
 
     public User CreateUser(User user){
-        return UserRepository.save(user);
+        return userRepository.save(user);
     }
 
     public User findById(long id) {
-        return UserRepository.findById(id).orElse(null);
+        return userRepository.findById(id).orElse(null);
     }
 
     
